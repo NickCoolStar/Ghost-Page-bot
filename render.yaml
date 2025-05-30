@@ -2,12 +2,11 @@ services:
   - type: web
     name: telegram-schedule-bot
     env: python
-    rootDir: main
     buildCommand: |
       pip install -r requirements.txt
       playwright install chromium
       playwright install-deps
-    startCommand: cd main && gunicorn main:web_app --config gunicorn_config.py
+    startCommand: gunicorn main:web_app --config gunicorn_config.py
     envVars:
       - key: TELEGRAM_BOT_TOKEN
         sync: false
