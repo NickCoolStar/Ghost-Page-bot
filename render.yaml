@@ -7,7 +7,7 @@ services:
       pip install -r requirements.txt
       playwright install chromium
       playwright install-deps
-    startCommand: gunicorn main:web_app --config gunicorn_config.py
+    startCommand: cd main && gunicorn main:web_app --config gunicorn_config.py
     envVars:
       - key: TELEGRAM_BOT_TOKEN
         sync: false
